@@ -131,17 +131,13 @@ public:
 
     // Включение нового значения в выбранную позицию
     bool push(T obj, int num) {
-        if (num > (size + 1) || num <= -1) return false;
-        size++;
+        if (num > (size + 1) || num < 0) return false;
         capacity = (size + 1) * n0;
         T *tmp = new T(capacity);
-        tmp[num] = obj;
-        for (int i = 0, a = 0; i < size + 1; i++, a++)
-            if (i != num) tmp[a] = array[i];
-            else {
-                a++;
-                tmp[num] = obj;
-            }
+        for (int i = 0; i != num; i++) tmp[i] = array[i];
+        tmp[num]=obj;
+        size++;
+        for (int i = num; i < size; i++) tmp[i+1] = array[i];
         delete[] array;
         array = new T(capacity);
         for (int i = 0; i < size; i++) array[i] = tmp[i];
@@ -171,8 +167,7 @@ public:
 
     // Удаление по позиции
     bool pop_pos(int num) {
-        if (num > size || num < 0)
-            return false;
+        if (num > size || num < 0) return false;
         size--;
         capacity = size + n0;
         T *tmp = new T(capacity);
