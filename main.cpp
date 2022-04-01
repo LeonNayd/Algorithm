@@ -2,8 +2,6 @@
 #include <windows.h>
 #include "List.cpp"
 
-const int ESC = 27;
-
 using namespace std;
 
 // Меню по заданию
@@ -28,7 +26,7 @@ void menu() {
             cout << "8 - Включение нового значения в позицию с заданным номером" << endl;
             cout << "9 - Удаление заданного значения в массиве" << endl;
             cout << "10 - Удаление значения из позиции с заданным номером" << endl;
-            cout << "ESC - Выход" << endl;
+            cout << "-1 - Выход" << endl;
             cout << "Ввод >> ";
             cin >> choice;
             switch (choice) {
@@ -136,7 +134,9 @@ void menu() {
                     else cout << "Элемент не найден" << endl;
                     break;
                 }
-                case ESC: { break; }
+                case -1: {
+                    choice = -1;
+                }
             }
             cout << endl;
         } while (choice != -1);
