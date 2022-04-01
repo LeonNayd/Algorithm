@@ -10,9 +10,13 @@ using namespace std;
 void menu() {
     try {
         int choice = 0;
-        int n1, n2;
-        List<int> lst(2);
+        int n0, n1, n2;
+        cout << "Введите значение n0: ";
+        cin >> n1;
+        cout << endl;
+        List<int> lst(n0);
         do {
+            cout << "Размер массива: " << lst.getCount() << endl;
             cout << "0 - Опрос размера массива" << endl;
             cout << "1 - Очистка массива" << endl;
             cout << "2 - Проверка массива на пустоту" << endl;
@@ -55,7 +59,7 @@ void menu() {
                 }
                 case 4: {
                     cout << endl;
-                    //cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер элемента: ";
                     cin >> n1;
                     while (n1 >= lst.getCount()) {
@@ -98,8 +102,7 @@ void menu() {
                 }
                 case 8: {
                     cout << endl;
-                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
-                    /*cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер для элемента: ";
                     cin >> n1;
                     while (n1 > lst.getCount()) {
@@ -109,7 +112,7 @@ void menu() {
                     cout << "Введите элемент: ";
                     cin >> n2;
                     if (lst.push(n2, n1)) cout << "Элемент добавлен" << endl;
-                    else cout << "Элемент не добавлен" << endl;*/
+                    else cout << "Элемент не добавлен" << endl;
                     break;
                 }
                 case 9: {
@@ -122,7 +125,6 @@ void menu() {
                 }
                 case 10: {
                     cout << endl;
-                    //cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
                     cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер элемента: ";
                     cin >> n1;
@@ -148,14 +150,7 @@ void menu() {
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
-    List<int> lst(2);
-    lst.push_front(5);
-    lst.push_front(3);
-    lst.push_front(1);
-
-
-    //menu();
-
+    menu();
 
     return 0;
 }

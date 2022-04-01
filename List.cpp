@@ -148,12 +148,10 @@ public:
         size--;
         capacity = size + n0;
         T *tmp = new T(capacity);
-        for (int i = 0, a = 0; i < size - 1; i++, a++)
-            if (i != num) {
-                tmp[a] = array[i];
-            } else {
-                a--;
-                tmp[a] = array[i];
+        for (int i = 0, j = 0; i < size; i++)
+            if (array[i] != array[num]) {
+                tmp[j] = array[i];
+                j++;
             }
         delete[] array;
         array = new T(capacity);

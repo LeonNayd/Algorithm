@@ -1,0 +1,10 @@
+# ninja log v5
+1	2228	6705211147797936	CMakeFiles/Algorithm.dir/main.cpp.obj	c849e0528ba1a01a
+2264	2354	6705211149018062	Algorithm.exe	21282238dbbad388
+7	70	6705212073226944	CMakeFiles/Algorithm.dir/List.cpp.obj	2edce543a774e904
+5	6701	6705212139539465	CMakeFiles/Algorithm.dir/main.cpp.obj	b467980bfc5a0509
+6702	6860	6705212141028251	Algorithm.exe	bef987b57828dd8b
+3	1484	6705214368501310	CMakeFiles/Algorithm.dir/main.cpp.obj	b467980bfc5a0509
+1484	1563	6705214369230382	Algorithm.exe	bef987b57828dd8b
+3	1526	6705214907420423	CMakeFiles/Algorithm.dir/main.cpp.obj	b467980bfc5a0509
+1526	1602	6705214908127111	Algorithm.exe	bef987b57828dd8b

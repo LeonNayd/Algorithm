@@ -1,4 +1,4 @@
-ToolSet: 16.0 (local)@D:\Microsoft\Microsoft Visual Studio\2019\Community
+ToolSet: w64 9.0 (local)@D:\CLion 2021.3.4\bin\mingw
 Options: 
 
-Options:
+Options:-DCMAKE_MAKE_PROGRAM=D:/CLion 2021.3.4/bin/ninja/win/ninja.exe
