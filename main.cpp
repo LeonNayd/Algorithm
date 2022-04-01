@@ -55,11 +55,7 @@ void menu() {
                 }
                 case 4: {
                     cout << endl;
-                    cout << "Размер массива: " << lst.getCount() << endl;
-                    if (lst.getCount() == 0){
-                        cout << "Массив пустой" << endl;
-                        break;
-                    }
+                    //cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер элемента: ";
                     cin >> n1;
                     while (n1 >= lst.getCount()) {
@@ -80,7 +76,7 @@ void menu() {
                     }
                     cout << "Введите новое значение элемента: ";
                     cin >> n2;
-                    if (lst.changeByNum(n2, n1)) cout << "Элемент изменён" << endl;
+                    if (lst.changeByNum(n2,n1)) cout << "Элемент изменён" << endl;
                     else cout << "Элемент не изменён" << endl;
                     break;
                 }
@@ -102,7 +98,7 @@ void menu() {
                 }
                 case 8: {
                     cout << endl;
-                    cout << "ПЕРЕДЕЛАТЬ!!!" << endl;
+                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
                     /*cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер для элемента: ";
                     cin >> n1;
@@ -126,7 +122,7 @@ void menu() {
                 }
                 case 10: {
                     cout << endl;
-                    cout << "ПЕРЕДЕЛАТЬ!!!" << endl;
+                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
                     /*cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер элемента: ";
                     cin >> n1;
@@ -138,9 +134,7 @@ void menu() {
                     else cout << "Элемент не найден" << endl;*/
                     break;
                 }
-                case ESC: {
-                    break;
-                }
+                case ESC: { break; }
             }
             cout << endl;
         } while (choice != -1);
@@ -154,15 +148,13 @@ void menu() {
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
-
     List<int> lst(2);
     lst.push_front(5);
     lst.push_front(3);
     lst.push_front(1);
-    lst.pop_value(3);
 
 
-    menu();
+    //menu();
 
 
     return 0;
