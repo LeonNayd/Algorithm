@@ -122,8 +122,8 @@ void menu() {
                 }
                 case 10: {
                     cout << endl;
-                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
-                    /*cout << "Размер массива: " << lst.getCount() << endl;
+                    //cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
+                    cout << "Размер массива: " << lst.getCount() << endl;
                     cout << "Введите номер элемента: ";
                     cin >> n1;
                     while (n1 >= lst.getCount()) {
@@ -131,7 +131,7 @@ void menu() {
                         cin >> n1;
                     }
                     if (lst.pop_pos(n1)) cout << "Элемент удалён" << endl;
-                    else cout << "Элемент не найден" << endl;*/
+                    else cout << "Элемент не найден" << endl;
                     break;
                 }
                 case ESC: { break; }
