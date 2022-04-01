@@ -6,16 +6,21 @@ public:
 
     class Front_iterator{         //итераторы
     public:
-        Front_iterator(List *lst, int cur) : list(lst), cur(cur){}
+        Front_iterator(){cur = 0;}
+        Front_iterator(List *lst, T* obj) : list(lst), cur(obj){}
         Front_iterator(const Front_iterator & it) {
             this->list = it.list;
             this->cur = it.cur;
         }
         T& operator*(){
-            return *list->array[cur];
+            return cur;
         }
-        Front_iterator operator++(int num){
-            return num++;
+        Front_iterator operator++(){
+            if(this->cur != nullptr) throw "Невозможно выполнить операцию декременции";
+                int i = list->getNumByValue(cur);
+                i++;
+                cur = list->getObj(i);
+                return this;
         }
         bool operator==(const Front_iterator& it){
             return this->list->array[cur] == it.list->array[it.cur];
@@ -25,33 +30,29 @@ public:
         }
     private:
         List* list;
-        int cur;
+        T* cur;
     };
 
     class Back_iterator{
     public:
 
-        Back_iterator(List *lst, int cur) : list(lst), cur(cur){}
+        Back_iterator(List *lst, T* obj) : list(lst), cur(cur){}
         Back_iterator(const Front_iterator & it) {
-            this->list = it.list;
-            this->cur = it.cur;
-        }
-        T& operator*(){
-            return this->list->array[cur];
-        }
-        Back_iterator operator++(){
-            this->cur++;
+            if(this->cur != nullptr) throw "Невозможно выполнить операцию декременции";
+            int i = list->getNumByValue(cur);
+            i++;
+            cur = list->getObj(i);
             return this;
         }
-        bool operator==(const Back_iterator& it){
+        bool operator==(const Front_iterator& it){
             return this->list->array[cur] == it.list->array[it.cur];
         }
-        bool operator!=(const Back_iterator& it){
-            return this->list->array[cur] == it.list->array[it.cur];
+        bool operator!=(const Front_iterator& it){
+            return this->list->array[cur] != it.list->array[it.cur];
         }
     private:
         List* list;
-        int cur;
+        T* cur;
     };
 
     // Конструктор
