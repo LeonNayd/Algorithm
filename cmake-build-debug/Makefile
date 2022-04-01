@@ -118,6 +118,30 @@ Algorithm\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\build
 .PHONY : Algorithm\fast
 
+List.obj: List.cpp.obj
+.PHONY : List.obj
+
+# target to build an object file
+List.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\List.cpp.obj
+.PHONY : List.cpp.obj
+
+List.i: List.cpp.i
+.PHONY : List.i
+
+# target to preprocess a source file
+List.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\List.cpp.i
+.PHONY : List.cpp.i
+
+List.s: List.cpp.s
+.PHONY : List.s
+
+# target to generate assembly for a file
+List.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\List.cpp.s
+.PHONY : List.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -151,6 +175,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Algorithm
+	@echo ... List.obj
+	@echo ... List.i
+	@echo ... List.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

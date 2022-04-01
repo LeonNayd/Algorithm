@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/CLionProject/Algorithm/List.cpp">
+			<Option target="Algorithm"/>
+		</Unit>
+		<Unit filename="D:/CLionProject/Algorithm/List.h">
+			<Option target="Algorithm"/>
+		</Unit>
 		<Unit filename="D:/CLionProject/Algorithm/main.cpp">
 			<Option target="Algorithm"/>
 		</Unit>

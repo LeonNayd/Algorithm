@@ -1,7 +1,6 @@
 #include "iostream"
 #include <windows.h>
 #include "List.cpp"
-#include <conio.h>
 
 const int ESC = 27;
 
@@ -11,9 +10,9 @@ using namespace std;
 void menu() {
     try {
         int choice = 0;
-        //List<int> lst(5);
+        int n1, n2;
+        List<int> lst(2);
         do {
-            //cout << "Текущий размер массива = " << lst.getCount() << endl;
             cout << "0 - Опрос размера массива" << endl;
             cout << "1 - Очистка массива" << endl;
             cout << "2 - Проверка массива на пустоту" << endl;
@@ -30,53 +29,115 @@ void menu() {
             cin >> choice;
             switch (choice) {
                 case 0: {
-                    cout << "Размер массива:" << endl;
+                    cout << endl;
+                    cout << "Размер массива: " << lst.getCount() << endl;
                     break;
                 }
                 case 1: {
+                    lst.clear();
+                    cout << endl;
                     cout << "Массив очищен" << endl;
                     break;
                 }
                 case 2: {
-                    cout << "Массив пустой или не пустой" << endl;
+                    cout << endl;
+                    if (lst.isEmpty()) cout << "Массив пустой" << endl;
+                    else cout << "Массив не пустой" << endl;
                     break;
                 }
                 case 3: {
-                    cout << "Значение есть или нет я хз" << endl;
+                    cout << endl;
+                    cout << "Введите элемент: ";
+                    cin >> n1;
+                    if (lst.isHere(n1)) cout << "Элемент присутствует в массиве" << endl;
+                    else cout << "Элемент не присутствует в массиве" << endl;
                     break;
                 }
                 case 4: {
-                    cout << "Значение элемента: ";
+                    cout << endl;
+                    //cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Введите номер элемента: ";
+                    cin >> n1;
+                    while (n1 >= lst.getCount()) {
+                        cout << "Введите номер элемента заново: ";
+                        cin >> n1;
+                    }
+                    cout << "Значение элемента: " << lst.getObj(n1) << endl;
                     break;
                 }
                 case 5: {
-                    cout << "Измененный элемент: ";
+                    cout << endl;
+                    cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Введите номер элемента: ";
+                    cin >> n1;
+                    while (n1 >= lst.getCount()) {
+                        cout << "Введите номер элемента заново: ";
+                        cin >> n1;
+                    }
+                    cout << "Введите новое значение элемента: ";
+                    cin >> n2;
+                    if (lst.changeByNum(n2,n1)) cout << "Элемент изменён" << endl;
+                    else cout << "Элемент не изменён" << endl;
                     break;
                 }
                 case 6: {
-                    cout << "Позиция элемента:" << endl;
+                    cout << endl;
+                    cout << "Введите значение элемента: ";
+                    cin >> n1;
+                    if (lst.getNumByValue(n1) != -1) cout << "Значение элемента: " << lst.getNumByValue(n1) << endl;
+                    else cout << "Такого значения нет в массиве" << endl;
                     break;
                 }
                 case 7: {
-                    cout << "Элемент добавлен" << endl;
+                    cout << endl;
+                    cout << "Введите элемент: ";
+                    cin >> n1;
+                    lst.push_front(n1);
+                    cout << "Элемент добавлен в массив" << endl;
                     break;
                 }
                 case 8: {
-                    cout << "Элемент добавлен" << endl;
+                    cout << endl;
+                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
+                    /*cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Введите номер для элемента: ";
+                    cin >> n1;
+                    while (n1 > lst.getCount()) {
+                        cout << "Введите номер заново: ";
+                        cin >> n1;
+                    }
+                    cout << "Введите элемент: ";
+                    cin >> n2;
+                    if (lst.push(n2, n1)) cout << "Элемент добавлен" << endl;
+                    else cout << "Элемент не добавлен" << endl;*/
                     break;
                 }
                 case 9: {
-                    cout << "Элемент удален" << endl;
+                    cout << endl;
+                    cout << "Введите значение: ";
+                    cin >> n1;
+                    if (lst.pop_value(n1)) cout << "Элемент удалён" << endl;
+                    else cout << "Элемент не найден";
                     break;
                 }
                 case 10: {
-                    cout << "Элемент удален" << endl;
+                    cout << endl;
+                    cout << "ПЕРЕДЕЛАТЬ!!!"<< endl;
+                    /*cout << "Размер массива: " << lst.getCount() << endl;
+                    cout << "Введите номер элемента: ";
+                    cin >> n1;
+                    while (n1 >= lst.getCount()) {
+                        cout << "Введите номер заново: ";
+                        cin >> n1;
+                    }
+                    if (lst.pop_pos(n1)) cout << "Элемент удалён" << endl;
+                    else cout << "Элемент не найден" << endl;*/
                     break;
                 }
+                case ESC: { break; }
             }
-            while (_getch() != ESC);
-            
-        } while (choice != 0);
+            cout << endl;
+        } while (choice != -1);
     }
     catch (exception ex) {
         cout << ex.what() << endl;
@@ -87,8 +148,14 @@ void menu() {
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
-    menu();
+    List<int> lst(2);
+    lst.push_front(5);
+    lst.push_front(3);
+    lst.push_front(1);
 
-    system("pause");
+
+    //menu();
+
+
     return 0;
 }
