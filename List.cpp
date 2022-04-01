@@ -4,11 +4,10 @@ template<typename T>
 class List {
 public:
 
-    template<typename Value>
     class Front_iterator{         //итераторы
     public:
-        Front_iterator<Value>(List *lst, int cur) : list(lst), cur(cur){}
-        Front_iterator<Value>(const Front_iterator<Value> & it) {
+        Front_iterator(List *lst, int cur) : list(lst), cur(cur){}
+        Front_iterator(const Front_iterator & it) {
             this->list = it.list;
             this->cur = it.cur;
         }
@@ -29,12 +28,11 @@ public:
         int cur;
     };
 
-    template<typename Value>
     class Back_iterator{
     public:
 
-        Back_iterator<Value>(List *lst, int cur) : list(lst), cur(cur){}
-        Back_iterator<Value>(const Front_iterator<Value> & it) {
+        Back_iterator(List *lst, int cur) : list(lst), cur(cur){}
+        Back_iterator(const Front_iterator & it) {
             this->list = it.list;
             this->cur = it.cur;
         }
