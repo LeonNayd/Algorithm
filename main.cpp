@@ -15,6 +15,9 @@ void menu() {
         cin >> n1;
         cout << endl;
         List<int> lst(n0);
+        lst.push_front(1);
+        lst.push_front(4);
+        lst.push_front(5);
         do {
             cout << "Размер массива: " << lst.getCount() << endl;
             cout << "0 - Опрос размера массива" << endl;

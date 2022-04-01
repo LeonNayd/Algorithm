@@ -1,30 +1,60 @@
 //#include "List.h"
 
-template<class T>
+template<typename T>
 class List {
 public:
 
-    /*class Front_iterator{         //итераторы
+    template<typename Value>
+    class Front_iterator{         //итераторы
     public:
-        T& operator*();
-        Front_iterator operator++(int);
-        bool operator==(Front_iterator&);
-        bool operator!=(Front_iterator&);
+        Front_iterator<Value>(List *lst, int cur) : list(lst), cur(cur){}
+        Front_iterator<Value>(const Front_iterator<Value> & it) {
+            this->list = it.list;
+            this->cur = it.cur;
+        }
+        T& operator*(){
+            return *list->array[cur];
+        }
+        Front_iterator operator++(int num){
+            return num++;
+        }
+        bool operator==(const Front_iterator& it){
+            return this->list->array[cur] == it.list->array[it.cur];
+        }
+        bool operator!=(const Front_iterator& it){
+            return this->list->array[cur] != it.list->array[it.cur];
+        }
     private:
         List* list;
         int cur;
     };
 
+    template<typename Value>
     class Back_iterator{
     public:
-        T& operator*();
-        Back_iterator operator++();
-        bool operator==(Back_iterator&);
-        bool operator!=(Back_iterator&);
+
+        Back_iterator<Value>(List *lst, int cur) : list(lst), cur(cur){}
+        Back_iterator<Value>(const Front_iterator<Value> & it) {
+            this->list = it.list;
+            this->cur = it.cur;
+        }
+        T& operator*(){
+            return this->list->array[cur];
+        }
+        Back_iterator operator++(){
+            this->cur++;
+            return this;
+        }
+        bool operator==(const Back_iterator& it){
+            return this->list->array[cur] == it.list->array[it.cur];
+        }
+        bool operator!=(const Back_iterator& it){
+            return this->list->array[cur] == it.list->array[it.cur];
+        }
     private:
         List* list;
         int cur;
-    };*/
+    };
 
     // Конструктор
     List(int n0) {
