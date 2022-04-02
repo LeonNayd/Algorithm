@@ -219,24 +219,28 @@ bool List<T>::pop_pos(int num) {
 
 template<typename T>
 typename List<T>::Front_iterator List<T>::begin(){
-
+    Front_iterator it(this, this->array[0]);
+    return it;
 }
 
 template<typename T>
 typename List<T>::Back_iterator List<T>::rbegin(){
-
+    Back_iterator it(this, this->array[1]);
+    return it;
 }
 
 // Итератор с индексом size+1
 template<typename T>
 typename List<T>::Front_iterator List<T>::end(){
-
+    Front_iterator it(this, this->array[size]);
+    return it;
 }
 
 // Итератор с индексом size-1
 template<typename T>
 typename List<T>::Back_iterator List<T>::rend(){
-
+    Back_iterator it(this, this->array[size+1]);
+    return it;
 }
 
 
