@@ -50,9 +50,9 @@ T& List<T>::Back_iterator::operator*() {
 }
 
 template<typename T>
-void List<T>::Back_iterator::operator++() {
+void List<T>::Back_iterator::operator--() {
     if(cur >= this->list.size)  throw 1;
-    cur++;
+    cur--;
 }
 
 template<typename T>

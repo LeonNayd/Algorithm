@@ -35,7 +35,7 @@ public:
 
         T &operator*();
 
-        void operator++();
+        void operator--();
 
         bool operator==(const Back_iterator &it);
 
