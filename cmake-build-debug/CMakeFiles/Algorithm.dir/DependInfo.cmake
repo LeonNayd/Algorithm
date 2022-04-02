@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Dominator/Documents/GitHub/Algorithm/List.cpp" "CMakeFiles/Algorithm.dir/List.cpp.obj" "gcc" "CMakeFiles/Algorithm.dir/List.cpp.obj.d"
-  "C:/Users/Dominator/Documents/GitHub/Algorithm/main.cpp" "CMakeFiles/Algorithm.dir/main.cpp.obj" "gcc" "CMakeFiles/Algorithm.dir/main.cpp.obj.d"
+  "D:/CLionProject/Algorithm/List.cpp" "CMakeFiles/Algorithm.dir/List.cpp.obj" "gcc" "CMakeFiles/Algorithm.dir/List.cpp.obj.d"
+  "D:/CLionProject/Algorithm/main.cpp" "CMakeFiles/Algorithm.dir/main.cpp.obj" "gcc" "CMakeFiles/Algorithm.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.
