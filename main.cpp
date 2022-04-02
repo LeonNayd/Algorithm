@@ -4,6 +4,148 @@
 
 using namespace std;
 
+
+void iter_menu(){
+    try{
+        int choice = 0;
+        int n0, n1, n2, cur_f, cur_b;
+        cout << "Введите значение n0: ";
+        cin >> n1;
+        cout << "Введите значение прямого итератора: ";
+        cin >> cur_f;
+        cout << "Введите значение обратного итератора: ";
+        cin >> cur_b;
+        cout << endl;
+        List<int> lst(n0);
+        lst.push_front(1);
+        lst.push_front(4);
+        lst.push_front(5);
+        List<int>::Front_iterator f_it(&lst, cur_f);
+        List<int>::Back_iterator b_it(&lst, cur_b);
+        do{
+            cout << " 0 - Оператор ++ прямого итератора" << endl;
+            cout << " 1 - Оператор == прямого итератора" << endl;
+            cout << " 2 - Оператор != прямого итератора" << endl;
+            cout << " 3 - Оператор * прямого итератора" << endl;
+            cout << " 4 - Оператор -- обратного итератора" << endl;
+            cout << " 5 - Оператор == обратного итератора" << endl;
+            cout << " 6 - Оператор != обратного итератора" << endl;
+            cout << " 7 - Оператор * обратного итератора" << endl;
+            cout << "-1 - Выход" << endl;
+            cin >> choice;
+            switch (choice) {
+                case 0:
+                {
+                    try{
+                        ++f_it;
+                    }catch(exception ex){
+                        cout << ex.what()<<endl;
+                    }
+                    break;
+                }
+                case 1:
+                {
+                    try{
+                        int tmp_f = 0;
+                        cout << "Введите значение позиции: ";
+                        cin >> tmp_f;
+                        cout << endl;
+                        List<int>::Front_iterator tmp(&lst, tmp_f);
+                        cout << (f_it == tmp) << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case 2:
+                {
+                    try{
+                        int tmp_f = 0;
+                        cout << "Введите значение позиции: ";
+                        cin >> tmp_f;
+                        cout << endl;
+                        List<int>::Front_iterator tmp(&lst, tmp_f);
+                        cout << (f_it != tmp) << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case 3:
+                {
+                    try{
+                        cout << *f_it << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case 4:
+                {
+                    try{
+                        --b_it;
+                    }catch(exception ex){
+                        cout << ex.what()<<endl;
+                    }
+                    break;
+                }
+                case 5:
+                {
+                    try{
+                        int tmp_f = 0;
+                        cout << "Введите значение позиции: ";
+                        cin >> tmp_f;
+                        cout << endl;
+                        List<int>::Back_iterator tmp(&lst, tmp_f);
+                        cout << (b_it == tmp) << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case 6:
+                {
+                    try{
+                        int tmp_f = 0;
+                        cout << "Введите значение позиции: ";
+                        cin >> tmp_f;
+                        cout << endl;
+                        List<int>::Back_iterator tmp(&lst, tmp_f);
+                        cout << (b_it != tmp) << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case 7:
+                {
+                    try{
+                        cout << *f_it << endl;
+                    }
+                    catch(exception ex){
+                        cout << ex.what() << endl;
+                    }
+                    break;
+                }
+                case -1:{
+                    choice=-1;
+                    break;
+                }
+            }
+        }
+        while(choice != -1);
+
+    }
+    catch (exception ex) {
+        cout << ex.what() << endl;
+    }
+}
+
 // Меню по заданию
 void menu() {
     try {
@@ -29,6 +171,7 @@ void menu() {
             cout << "8 - Включение нового значения в позицию с заданным номером" << endl;
             cout << "9 - Удаление заданного значения в массиве" << endl;
             cout << "10 - Удаление значения из позиции с заданным номером" << endl;
+            cout << "11 - Меню итераторов" << endl;
             cout << "-1 - Выход" << endl;
             cout << "Ввод >> ";
             cin >> choice;
@@ -135,6 +278,11 @@ void menu() {
                     }
                     if (lst.pop_pos(n1)) cout << "Элемент удалён" << endl;
                     else cout << "Элемент не найден" << endl;
+                    break;
+                }
+                case 11:
+                {
+                    iter_menu();
                     break;
                 }
                 case -1: {

@@ -11,16 +11,16 @@ List<T>::Front_iterator::Front_iterator(const Front_iterator &it) {
 
 template<typename T>
 T& List<T>::Front_iterator::operator*() {
-    if(cur > this->list.size){
-        throw 1;
+    if(cur > this->list->size){
+        throw "error";
     }
-    return *this->list->array[cur];
+    return this->list->array[cur];
 }
 
 template<typename T>
 void List<T>::Front_iterator::operator++() {
-    if(cur >= this->list.size)  throw 1;
-    cur++;
+    if(this->cur >= this->list->size)  throw "error";
+    this->cur++;
 }
 
 template<typename T>
@@ -45,13 +45,13 @@ List<T>::Back_iterator::Back_iterator(const Back_iterator &it) {
 template<typename T>
 T& List<T>::Back_iterator::operator*() {
     if(cur <= 0)
-        throw 1;
+        throw "error";
         return list->array[cur];
 }
 
 template<typename T>
 void List<T>::Back_iterator::operator--() {
-    if(cur <= 0)  throw 1;
+    if(cur <= 0)  throw "error";
     cur--;
 }
 
