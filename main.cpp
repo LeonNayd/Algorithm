@@ -17,9 +17,12 @@ void iter_menu(){
         cin >> cur_b;
         cout << endl;
         List<int> lst(n0);
-        lst.push_front(1);
-        lst.push_front(4);
-        lst.push_front(5);
+        lst.push_front(11);
+        lst.push_front(14);
+        lst.push_front(15);
+        lst.push_front(13);
+        lst.push_front(10);
+        cout << "Размер текущего массива: " << lst.getCount() << endl;
         List<int>::Front_iterator f_it(&lst, cur_f);
         List<int>::Back_iterator b_it(&lst, cur_b);
         do{
