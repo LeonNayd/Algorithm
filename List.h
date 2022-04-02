@@ -9,7 +9,7 @@ public:
     // Фронт итератор
     class Front_iterator {
     public:
-        Front_iterator(List *lst, T* obj);
+        Front_iterator(List *lst, int num);
 
         Front_iterator(const Front_iterator &it);
 
@@ -23,13 +23,13 @@ public:
 
     private:
         List *list;
-        T* cur;
+        int cur;
     };
 
     // Бэк итератор
     class Back_iterator {
     public:
-        Back_iterator(List *lst, T* obj);
+        Back_iterator(List *lst, int num);
 
         Back_iterator(const Back_iterator &it);
 
@@ -43,7 +43,7 @@ public:
 
     private:
         List *list;
-        T* cur;
+        int cur;
     };
 
     // Конструктор

@@ -1,7 +1,7 @@
 #include "List.h"
 
 template<typename T>
-List<T>::Front_iterator::Front_iterator(List *lst, T *obj) : list(lst), cur(obj) {}
+List<T>::Front_iterator::Front_iterator(List *lst, int num) : list(lst), cur(num) {}
 
 template<typename T>
 List<T>::Front_iterator::Front_iterator(const Front_iterator &it) {
@@ -11,29 +11,30 @@ List<T>::Front_iterator::Front_iterator(const Front_iterator &it) {
 
 template<typename T>
 T& List<T>::Front_iterator::operator*() {
-    return *this;
+    if(cur > this->list.size){
+        throw 1;
+    }
+    return *this->list->array[cur];
 }
 
 template<typename T>
 void List<T>::Front_iterator::operator++() {
-    if (this->cur == nullptr) throw "Невозможно выполнить операцию декременции";
-    int i = list->getNumByValue(cur);
-    i++;
-    cur = list->getObj(i);
+    if(cur >= this->list.size)  throw 1;
+    cur++;
 }
 
 template<typename T>
 bool List<T>::Front_iterator::operator==(const Front_iterator &it) {
-    return this->list->array[cur] == it.list->array[it.cur];
+    return this->cur == it.cur;
 }
 
 template<typename T>
 bool List<T>::Front_iterator::operator!=(const Front_iterator &it) {
-    return this->list->array[cur] != it.list->array[it.cur];
+    return this->cur != it.cur;
 }
 
 template<typename T>
-List<T>::Back_iterator::Back_iterator(List *lst, T *obj) : list (lst), cur(cur) {}
+List<T>::Back_iterator::Back_iterator(List *lst, int num) : list (lst), cur(num) {}
 
 template<typename T>
 List<T>::Back_iterator::Back_iterator(const Back_iterator &it) {
@@ -43,33 +44,25 @@ List<T>::Back_iterator::Back_iterator(const Back_iterator &it) {
 
 template<typename T>
 T& List<T>::Back_iterator::operator*() {
-    if (cur != nullptr)
-        return cur;
-    else throw "Не выполнено предусловие";
+    if(cur >= this->list.size)
+        throw 1;
+        return list->array[cur];
 }
 
 template<typename T>
 void List<T>::Back_iterator::operator++() {
-    if (this->cur == nullptr) {
-        throw "Итератор не определен";
-    }
-    int i = list->getNumByValue(cur);
-    if (i < list->size) {
-        i++;
-        cur = list->getObj(i);
-    } else {
-        this->cur = this->list->begin().list->array[this->list->begin().list->size];
-    }
+    if(cur >= this->list.size)  throw 1;
+    cur++;
 }
 
 template<typename T>
 bool List<T>::Back_iterator::operator==(const Back_iterator &it) {
-    return this->list->array[cur] == it.list->array[it.cur];
+    return cur == it.cur;
 }
 
 template<typename T>
 bool List<T>::Back_iterator::operator!=(const Back_iterator &it) {
-    return this->list->array[cur] != it.list->array[it.cur];
+    return cur != it.cur;
 }
 
 
@@ -103,6 +96,7 @@ void List<T>::clear() {
     delete[] array;
     size = 0;
     capacity = n0;
+    array = new T(capacity);
 }
 
 // Проверка списка на пустоту
@@ -163,7 +157,7 @@ void List<T>::push_front(T obj) {
 // Включение нового значения в выбранную позицию
 template<typename T>
 bool List<T>::push(T obj, int num) {
-    if (num > (size + 1) || num < 0) return false;
+    if (num > size || num < 0) return false;
     capacity = (size + 1) * n0;
     T *tmp = new T(capacity);
     for (int i = 0; i != num; i++) tmp[i] = array[i];
@@ -219,27 +213,27 @@ bool List<T>::pop_pos(int num) {
 
 template<typename T>
 typename List<T>::Front_iterator List<T>::begin(){
-    Front_iterator it(this, this->array[0]);
+    Front_iterator it(this, 0);
     return it;
 }
 
 template<typename T>
 typename List<T>::Back_iterator List<T>::rbegin(){
-    Back_iterator it(this, this->array[1]);
+    Back_iterator it(this, size);
     return it;
 }
 
 // Итератор с индексом size+1
 template<typename T>
 typename List<T>::Front_iterator List<T>::end(){
-    Front_iterator it(this, this->array[size]);
+    Front_iterator it(this, size);
     return it;
 }
 
 // Итератор с индексом size-1
 template<typename T>
 typename List<T>::Back_iterator List<T>::rend(){
-    Back_iterator it(this, this->array[size+1]);
+    Back_iterator it(this, -1);
     return it;
 }
 

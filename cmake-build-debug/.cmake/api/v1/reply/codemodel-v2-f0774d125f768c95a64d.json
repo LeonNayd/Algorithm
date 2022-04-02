@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/CLionProject/Algorithm/cmake-build-debug",
-		"source" : "D:/CLionProject/Algorithm"
+		"build" : "C:/Users/Dominator/Documents/GitHub/Algorithm/cmake-build-debug",
+		"source" : "C:/Users/Dominator/Documents/GitHub/Algorithm"
 	},
 	"version" : 
 	{
