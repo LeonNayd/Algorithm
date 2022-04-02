@@ -44,14 +44,14 @@ List<T>::Back_iterator::Back_iterator(const Back_iterator &it) {
 
 template<typename T>
 T& List<T>::Back_iterator::operator*() {
-    if(cur >= this->list.size)
+    if(cur <= 0)
         throw 1;
         return list->array[cur];
 }
 
 template<typename T>
 void List<T>::Back_iterator::operator--() {
-    if(cur >= this->list.size)  throw 1;
+    if(cur <= 0)  throw 1;
     cur--;
 }
 
