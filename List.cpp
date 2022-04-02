@@ -16,7 +16,7 @@ T& List<T>::Front_iterator::operator*() {
 
 template<typename T>
 void List<T>::Front_iterator::operator++() {
-    if (this->cur != nullptr) throw "Невозможно выполнить операцию декременции";
+    if (this->cur == nullptr) throw "Невозможно выполнить операцию декременции";
     int i = list->getNumByValue(cur);
     i++;
     cur = list->getObj(i);
@@ -50,7 +50,7 @@ T& List<T>::Back_iterator::operator*() {
 
 template<typename T>
 void List<T>::Back_iterator::operator++() {
-    if (this->cur != nullptr) {
+    if (this->cur == nullptr) {
         throw "Итератор не определен";
     }
     int i = list->getNumByValue(cur);
@@ -218,18 +218,26 @@ bool List<T>::pop_pos(int num) {
 }
 
 template<typename T>
-typename List<T>::Front_iterator List<T>::begin(){}
+typename List<T>::Front_iterator List<T>::begin(){
+
+}
 
 template<typename T>
-typename List<T>::Back_iterator List<T>::rbegin(){}
+typename List<T>::Back_iterator List<T>::rbegin(){
+
+}
 
 // Итератор с индексом size+1
 template<typename T>
-typename List<T>::Front_iterator List<T>::end(){}
+typename List<T>::Front_iterator List<T>::end(){
+
+}
 
 // Итератор с индексом size-1
 template<typename T>
-typename List<T>::Back_iterator List<T>::rend(){}
+typename List<T>::Back_iterator List<T>::rend(){
+
+}
 
 
 // Деконструктор
