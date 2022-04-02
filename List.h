@@ -1,74 +1,108 @@
+#pragma once
 #ifndef ALGORITHM_LIST_H
 #define ALGORITHM_LIST_H
 
-#include "List.cpp"
-template <class T>
-class List{
+template<typename T>
+class List {
 public:
 
-   /* class Front_iterator{         //итераторы
+    // Фронт итератор
+    class Front_iterator {
     public:
-        T& operator*();
-        Front_iterator operator++(int);
-        bool operator==(Front_iterator&);
-        bool operator!=(Front_iterator&);
+        Front_iterator(List *lst, T* obj);
+
+        Front_iterator(const Front_iterator &it);
+
+        T &operator*();
+
+        void operator++();
+
+        bool operator==(const Front_iterator &it);
+
+        bool operator!=(const Front_iterator &it);
+
     private:
-        List* list;
+        List *list;
         int cur;
     };
 
-    class Back_iterator{
+    // Бэк итератор
+    class Back_iterator {
     public:
-        T& operator*();
-        Back_iterator operator++();
-        bool operator==(Back_iterator&);
-        bool operator!=(Back_iterator&);
+        Back_iterator(List *lst, T* obj);
+
+        Back_iterator(const Back_iterator &it);
+
+        T &operator*();
+
+        void operator++();
+
+        bool operator==(const Back_iterator &it);
+
+        bool operator!=(const Back_iterator &it);
+
     private:
-        List* list;
-        int cur;
-    };*/
+        List *list;
+        T* cur;
+    };
 
-    List(int n0)                           //Пустой конструктор с вводом коэффициента n0
-/*
-    List(List<T> &list)                  //Конструктор копирования
+    // Конструктор
+    List(int n0);
 
-    int getCount()                        //Опрос размера спискf
+    // Конструктор копирования
+    List(List<T> &list);
 
-    void clear()                           //Очистка
+    // Опрос размера списка
+    int getCount();
 
-    bool isEmpty()                         //Проверка списка на пустоту
+    // Очистка
+    void clear();
 
-    bool isHere(T obj)                     //Опрос наличия заданного значения
+    // Проверка списка на пустоту
+    bool isEmpty();
 
-    T& getObj(int num)                    //Чтение значения по номеру
+    // Опрос наличия заданного значения
+    bool isHere(T obj);
 
-    bool changeByNum(T obj, int num)       //Изменеине по номеру
+    // Чтение значения по номеру
+    T &getObj(int num);
 
-    int getNumByValue(T obj)             //Получение номера по значению
+    // Изменение по номеру
+    bool changeByNum(T obj, int num);
 
-    void push_front(T obj)                  //Включение нового значения          ????????????
+    // Получение номера по значению
+    int getNumByValue(T obj);
 
-    bool push(T obj, int num)              //Включение нового значения в выбранную позицию          ????????????
+    // Включение нового значения
+    void push_front(T obj);
 
-    bool pop_value(T obj)                   //Удаление по значению          ????????????
+    // Включение нового значения в выбранную позицию
+    bool push(T obj, int num);
 
-    bool pop_pos(int num)                  //Удаление по позиции          ????????????
+    // Удаление по значению
+    bool pop_value(T obj);
 
-    Front_iterator begin()
+    // Удаление по позиции
+    bool pop_pos(int num);
 
-    Back_iterator rbegin()
+    Front_iterator begin();
 
-    Front_iterator end()                     //Итератор с индексом size+1
+    Back_iterator rbegin();
 
-    Back_iterator rend()                     //Итератор с индексом size-1
-*/
-    ~List()                                 //Деконструктор
+    // Итератор с индексом size+1
+    Front_iterator end();
+
+    // Итератор с индексом size-1
+    Back_iterator rend();
+
+    // Деконструктор
+    ~List();
 
 private:
     int size;
     int capacity;
     int n0;
-    T* array;
+    T *array;
 };
 
 #endif //ALGORITHM_LIST_H
