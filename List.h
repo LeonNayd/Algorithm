@@ -23,7 +23,7 @@ public:
 
     private:
         List *list;
-        int cur;
+        T* cur;
     };
 
     // Бэк итератор
