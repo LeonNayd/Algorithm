@@ -1,4 +1,6 @@
 #include "List.h"
+#include <iostream>
+
 
 template<typename T>
 List<T>::Front_iterator::Front_iterator(List *lst, int num) : list(lst), cur(num) {}
@@ -52,7 +54,7 @@ T& List<T>::Back_iterator::operator*() {
 template<typename T>
 void List<T>::Back_iterator::operator--() {
     if(cur <= 0)  throw "error";
-    cur--;
+    cur -= 1;
 }
 
 template<typename T>

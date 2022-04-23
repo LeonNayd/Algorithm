@@ -11,10 +11,6 @@ void iter_menu(){
         int n0, n1, n2, cur_f, cur_b;
         cout << "Введите значение n0: ";
         cin >> n1;
-        cout << "Введите значение позиции прямого итератора: ";
-        cin >> cur_f;
-        cout << "Введите значение позиции обратного итератора: ";
-        cin >> cur_b;
         cout << endl;
         List<int> lst(n0);
         lst.push_front(11);
@@ -23,8 +19,8 @@ void iter_menu(){
         lst.push_front(13);
         lst.push_front(10);
         cout << "Размер текущего массива: " << lst.getCount() << endl;
-        List<int>::Front_iterator f_it(&lst, cur_f);
-        List<int>::Back_iterator b_it(&lst, cur_b);
+        List<int>::Front_iterator f_it(&lst, 0);
+        List<int>::Back_iterator b_it(&lst, 4);
         do{
             cout << " 0 - Оператор ++ прямого итератора" << endl;
             cout << " 1 - Оператор == прямого итератора" << endl;
@@ -128,7 +124,7 @@ void iter_menu(){
                 case 7:
                 {
                     try{
-                        cout << *f_it << endl;
+                        cout << *b_it << endl;
                     }
                     catch(exception ex){
                         cout << ex.what() << endl;
